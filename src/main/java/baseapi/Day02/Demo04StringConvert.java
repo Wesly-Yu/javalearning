@@ -8,7 +8,7 @@ public String replace(CharSequence  oldstring, CharSequence newString)将
 
 
  */
-public class Dmeo04StringConvert {
+public class Demo04StringConvert {
     public static void main(String[] args) {
         char[] chars = "HelloWord".toCharArray();
         System.out.println(chars[0]);
