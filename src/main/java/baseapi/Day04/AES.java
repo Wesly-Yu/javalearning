@@ -53,7 +53,7 @@ public class AES {
     {
         final String secretKey = "2O!9MD$PP@S$K#Y*";
         
-        String originalString = "iFqkBlSVIIOR7z19ru5Banq48SnslGkQfIy5Jz9DMykQ8b6Htr7u7pQ4UbSA7Hz2";
+        String originalString = "qwerUIOP1234()_+";
         String encryptedString = AES.encrypt(originalString, secretKey) ;
         String decryptedString = AES.decrypt(encryptedString, secretKey) ;
         

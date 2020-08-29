@@ -11,7 +11,7 @@ public class MyClass {
     public static void staticmethod(){
         System.out.println("这是一个静态方法");
         System.out.println(numStatic);
-        System.out.println(num);//静态方法无法访问 非静态成员变量
+//        System.out.println(num);//静态方法无法访问 非静态成员变量
 
     }
 }
