@@ -19,7 +19,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
 public class situation05webHub {
     WebDriver driver;
     @Test(priority=1)
-    void setup() throws MalformedURLException {
+    public void setup() throws MalformedURLException {
         String nodeUrl ="http://192.168.0.4:45569/wd/hub";
         DesiredCapabilities capabilitie= DesiredCapabilities.chrome();
         capabilitie.setBrowserName("chrome");
@@ -31,7 +31,7 @@ public class situation05webHub {
         driver = new RemoteWebDriver(new URL(nodeUrl),capabilitie);
     }
     @Test(priority=2)
-    void login() throws InterruptedException {
+    public void login() throws InterruptedException {
         driver.get("https://testerhome.com");
         driver.manage().window().maximize();
         Thread.sleep(3000);

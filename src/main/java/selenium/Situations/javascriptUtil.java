@@ -15,5 +15,10 @@ public class javascriptUtil {
         JavascriptExecutor js = ((JavascriptExecutor) driver);
         js.executeScript("arguments[0].scrollIntoView(true)",element);
     }
+    public  static  void  scrollToBottle( WebDriver driver){
+        JavascriptExecutor js = ((JavascriptExecutor) driver);
+        js.executeScript("window.scrollTo(0,document.body.scrollHeight);");
+
+    }
 
 }
