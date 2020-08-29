@@ -14,7 +14,7 @@ Nodes should register to http://192.168.0.4:44444/grid/register/
 
 Client should connect to http://192.168.0.4:44444/wd/hub
 
-1)Windows(Hub)-------------->Windows(Chrome)
+1)Windows(Hub)-------------->Windows(Chrome)  //using same machine as Hub  and Node
 2)Windows(Hub)-------------->Linux(Firefox)
 
 
