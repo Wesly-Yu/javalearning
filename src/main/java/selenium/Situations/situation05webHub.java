@@ -23,7 +23,7 @@ public class situation05webHub {
         String nodeUrl ="http://192.168.0.4:45569/wd/hub";
         DesiredCapabilities capabilitie= DesiredCapabilities.chrome();
         capabilitie.setBrowserName("chrome");
-        capabilitie.setPlatform(Platform.WIN10);
+        capabilitie.setPlatform(Platform.WINDOWS);// set plateform  win10 will not launch browser
 //        String mainpath = System.getProperty("user.dir");
 //        String webdriverpath = mainpath+"\\src\\main\\resources\\webdriver\\geckodriver.exe";
 //        System.out.println(webdriverpath);
