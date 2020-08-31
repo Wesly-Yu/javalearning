@@ -8,7 +8,7 @@ Pre-requisites
 Convert your local system as hubserver
 ---------------------------------------------
 
-java -jar selenium-server-standalone-3.141.59.jar -role hub -port 44444
+java -jar selenium-server-standalone-3.141.59.jar -role hub -port 4444
 
 Nodes should register to http://192.168.0.4:44444/grid/register/
 
@@ -18,8 +18,8 @@ Client should connect to http://192.168.0.4:44444/wd/hub
 2)Windows(Hub)-------------->Linux(Firefox)
 
 
-java -Dwebdriver.chrome.driver="E:\javalearning\src\main\resources\webdriver\chromedriver.exe"  -jar selenium-server-standalone-3.141.59.jar -role node  -hub http://192.168.0.4:44444/grid/register/
+java -Dwebdriver.chrome.driver="E:\javalearning\src\main\resources\webdriver\chromedriver.exe"  -jar selenium-server-standalone-3.141.59.jar -role node  -hub http://192.168.153.1:4444/grid/register/
 
 Check Hub is running or not
 ----------------------------
-http://localhost:44444/grid/console
+http://localhost:4444/grid/console
