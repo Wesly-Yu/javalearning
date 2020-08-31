@@ -3,6 +3,7 @@ package selenium.Situations;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
@@ -21,6 +22,8 @@ public class situation08allureReport {
     @BeforeClass
     public void setUp(){
         String mainpath = System.getProperty("user.dir");
+        String reportpath = mainpath+"\\allure-results";
+        cleanLastReport.deletDir(reportpath);
         String webdriverpath = mainpath+"\\src\\main\\resources\\webdriver\\chromedriver.exe";
         System.out.println(webdriverpath);
         System.setProperty("webdriver.chrome.driver",webdriverpath);
@@ -49,6 +52,8 @@ public class situation08allureReport {
         Thread.sleep(2000);
         javascriptUtil.scrollToBottle(driver);
         Thread.sleep(1000);
+        WebElement  tips = driver.findElement(By.xpath("//*[@id=\"main\"]/div/div[2]/div[6]/div[1]"));
+        javascriptUtil.scrollIntoView(tips,driver);
         driver.findElement(By.xpath("//*[@title=\"[持续交付实践] 开篇：持续集成&持续交付综述\"]")).click();
         driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
         driver.findElement(By.xpath("//*[@id=\"topic-sidebar\"]/div[1]/div/div[1]/div[2]/div/a[1]")).click();
@@ -62,18 +67,17 @@ public class situation08allureReport {
     @Test(priority = 3)
     public  void testNewNoteBook() throws InterruptedException, AWTException {
         driver.findElement(By.xpath("//*[@id=\"main-page\"]/div[1]/nav/div/ul[1]/li/a/img")).click();
-        driver.findElement(By.xpath("//*[@id=\"main-page\"]/div[1]/nav/div/ul[1]/li/ul/li[5]/a")).click();
+        Thread.sleep(1000);
+        driver.findElement(By.xpath("//ul[@class='nav user-bar navbar-nav navbar-right']//li[5]//a[1]")).click();
         Thread.sleep(2000);
         String noteBookPage=driver.findElement(By.xpath("//*[@id=\"notes\"]/div[2]/div")).getText();
-        assertThat(noteBookPage,equalTo("你还没有创建过一个文件"));
+        assertThat(noteBookPage,equalTo("你还没有创建过一个文件。"));
         driver.findElement(By.xpath("//*[@id=\"homeland-note\"]/div/div[2]/div/div[1]/p/a")).click();
+        Thread.sleep(2000);
         driver.findElement(By.id("note_body")).sendKeys("test note book function");
         driver.findElement(By.name("commit")).click();
         Thread.sleep(1000);
         driver.findElement(By.xpath("//*[@id=\"notes\"]/div[1]/div/span/a[2]/i")).click();
-//        Robot robot = new Robot();
-//        Thread.sleep(2000);
-//        robot.keyPress(KeyEvent.VK_ENTER);
         Alert alert = driver.switchTo().alert();
         alert.accept();
         String noteBookcount=driver.findElement(By.xpath("//*[@id=\"homeland-note\"]/div/div[2]/div/div[2]")).getText();
@@ -87,6 +91,7 @@ public class situation08allureReport {
         Thread.sleep(2000);
         String simpleProfile = driver.findElement(By.xpath("//*[@id=\"main\"]/div/div[1]/div/ul/li[1]/a/span")).getText();
         assertThat(simpleProfile,equalTo("基本信息"));
+        driver.findElement(By.id("user_bio")).clear();
         driver.findElement(By.id("user_bio")).sendKeys("只是测试一下下啦");
         driver.findElement(By.xpath("//*[@id=\"edit_user_15904\"]/div[2]/button")).click();
         String updatesuccess=driver.findElement(By.xpath("//*[@id=\"main\"]/div[1]")).getText();
@@ -96,10 +101,14 @@ public class situation08allureReport {
     @Test(priority = 5)
     public void updateMoreProfile() throws InterruptedException {
         driver.findElement(By.xpath("//*[@id=\"main\"]/div/div[1]/div/ul/li[2]/a/span")).click();
+        Thread.sleep(2000);
         String city = driver.findElement(By.xpath("//*[@id=\"edit_user_15904\"]/div[1]/label")).getText();
-        assertThat(city,equalTo("City"));//断言是否进入界面
+        assertThat(city,equalTo("城市"));//断言是否进入界面
+        driver.findElement(By.id("user_company")).clear();
         driver.findElement(By.id("user_company")).sendKeys("Simens");
+        driver.findElement(By.id("user_website")).clear();
         driver.findElement(By.id("user_website")).sendKeys("https://github.com/Wesly-Yu");//https://github.com/Wesly-Yu
+        driver.findElement(By.id("user_profile_wechat")).clear();
         driver.findElement(By.id("user_profile_wechat")).sendKeys("女施主老衲给你送茶来啦");
         Thread.sleep(1000);
         driver.findElement(By.xpath("//*[@id=\"edit_user_15904\"]/div[10]/button")).click();
