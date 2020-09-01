@@ -1,5 +1,6 @@
 package selenium.Situations;
 
+import io.qameta.allure.*;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -30,6 +31,12 @@ public class situation08allureReport {
         driver = new ChromeDriver();
     }
     @Test(priority = 1)
+    @Description("login test")
+    @Epic("QAGP-001")
+    @Feature("Feature1:LoginPage")
+    @Story("Story: Valid login")
+    @Step("Verify login")
+    @Severity(SeverityLevel.BLOCKER)
     public void testLogin() throws InterruptedException {
         driver.get("https://testerhome.com");
         driver.manage().window().maximize();
@@ -47,6 +54,12 @@ public class situation08allureReport {
         Thread.sleep(3000);
     }
     @Test(priority = 2)
+    @Description("UserFavorites test")
+    @Epic("QAGP-002")
+    @Feature("Feature1:UserFavoritesPage")
+    @Story("Story: Valid UserFavorites")
+    @Step("Verify UserFavorites")
+    @Severity(SeverityLevel.MINOR)
     public void testUserFavorites() throws InterruptedException {
         driver.findElement(By.xpath("//*[@id=\"main-page\"]/div[1]/nav/div/ul[1]/li/ul/li[4]/a")).click();
         Thread.sleep(2000);
@@ -65,6 +78,12 @@ public class situation08allureReport {
         Thread.sleep(2000);
     }
     @Test(priority = 3)
+    @Description("UserNoteBook Create and Delete test")
+    @Epic("QAGP-003")
+    @Feature("Feature1:UserNoteBookCreate")
+    @Story("Story: Valid NoteBook")
+    @Step("Verify UserNoteBook")
+    @Severity(SeverityLevel.MINOR)
     public  void testNewNoteBook() throws InterruptedException, AWTException {
         driver.findElement(By.xpath("//*[@id=\"main-page\"]/div[1]/nav/div/ul[1]/li/a/img")).click();
         Thread.sleep(1000);
@@ -85,6 +104,12 @@ public class situation08allureReport {
     }
 
     @Test(priority = 4)
+    @Description("updateAccountProfile  parameter")
+    @Epic("QAGP-004")
+    @Feature("Feature1:updateAccountProfile")
+    @Story("Story: Valid updateAccountProfile")
+    @Step("Verify updateAccountProfile")
+    @Severity(SeverityLevel.MINOR)
     public void updateAccountProfile() throws InterruptedException {
         driver.findElement(By.xpath("//*[@id=\"main-page\"]/div[1]/nav/div/ul[1]/li/a/img")).click();
         driver.findElement(By.xpath("//*[@id=\"main-page\"]/div[1]/nav/div/ul[1]/li/ul/li[3]/a")).click();
@@ -99,6 +124,12 @@ public class situation08allureReport {
         Thread.sleep(2000);
     }
     @Test(priority = 5)
+    @Description("updateMoreProfile  parameter")
+    @Epic("QAGP-005")
+    @Feature("Feature1:updateMoreProfile")
+    @Story("Story: Valid updateMoreProfile")
+    @Step("Verify updateMoreProfile")
+    @Severity(SeverityLevel.CRITICAL)
     public void updateMoreProfile() throws InterruptedException {
         driver.findElement(By.xpath("//*[@id=\"main\"]/div/div[1]/div/ul/li[2]/a/span")).click();
         Thread.sleep(2000);

@@ -6,7 +6,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 
 public class createTestReport {
-    public static void main() {
+    public static void main(String[] args) {
         String mainpath = System.getProperty("user.dir");
         String cmd = "allure serve" +"  "+mainpath+"\\allure-results";
         try{
