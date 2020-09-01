@@ -28,7 +28,9 @@ public class situation08allureReport {
         String webdriverpath = mainpath+"\\src\\main\\resources\\webdriver\\chromedriver.exe";
         System.out.println(webdriverpath);
         System.setProperty("webdriver.chrome.driver",webdriverpath);
-        driver = new ChromeDriver();
+        driver.get("https://testerhome.com");
+        driver.manage().window().maximize();
+
     }
     @Test(priority = 1)
     @Description("login test")
@@ -38,9 +40,6 @@ public class situation08allureReport {
     @Step("Verify login")
     @Severity(SeverityLevel.BLOCKER)
     public void testLogin() throws InterruptedException {
-        driver.get("https://testerhome.com");
-        driver.manage().window().maximize();
-        Thread.sleep(3000);
         driver.findElement(By.xpath("//*[@id=\"main-page\"]/div[1]/nav/div/ul[1]/li[2]/a")).click();
         Thread.sleep(3000);
         driver.findElement(By.id("user_login")).sendKeys("1633235633@qq.com");

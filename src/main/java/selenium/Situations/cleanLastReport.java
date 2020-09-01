@@ -1,8 +1,11 @@
 package selenium.Situations;
 
+import selenium.Situations.BaseDriver.BaseClass;
+
 import java.io.File;
 
 public class cleanLastReport {
+
     public static  void deletDir(String path){
         File file = new File(path);
         if (!file.exists()){
