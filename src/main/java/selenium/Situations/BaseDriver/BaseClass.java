@@ -5,7 +5,10 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import selenium.Situations.cleanLastReport;
 
+import java.io.IOException;
 import java.util.concurrent.TimeUnit;
+
+import static selenium.Situations.BaseDriver.GetProperty.getPropertied;
 
 public class BaseClass {
     public WebDriver driver;
@@ -27,4 +30,9 @@ public class BaseClass {
     public  static  synchronized WebDriver getDriver(){
         return tdriver.get();
     }
+
+//    public void open() throws IOException {
+//        String baseurl = getPropertied("baseUrl");
+//
+//    }
 }
