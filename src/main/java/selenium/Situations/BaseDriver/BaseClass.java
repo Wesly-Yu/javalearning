@@ -8,7 +8,7 @@ import selenium.Situations.cleanLastReport;
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
-import static selenium.Situations.BaseDriver.GetProperty.getPropertied;
+//import static selenium.Situations.BaseDriver.GetProperty.getPropertied;
 
 public class BaseClass {
     public WebDriver driver;

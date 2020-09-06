@@ -1,30 +1,33 @@
 package selenium.Situations.BaseDriver;
-
-import org.testng.annotations.Test;
+import org.springframework.core.io.support.PropertiesLoaderUtils;
 
 import java.io.*;
 import java.util.Properties;
 
 public class GetProperty {
-    @Test
-    public static void getPropertied() throws IOException {
+//    @Test
+//    public static void getPropertied() throws Exception {
+//        Properties  pro = new Properties();
+////        String configpath = "src/main/resources/configure/basedata.properties";
+//        InputStream inputStream = Object.class.getResourceAsStream("");
+//        InputStreamReader inputStreamReader = null;
+//        String value = null;
+//        try{
+//            pro = PropertiesLoaderUtils.loadAllProperties("basedata.properties");
+//            System.out.println(new String(pro.getProperty("baseUrl").getBytes("iso-8859-1"),"gbk"));
+//        } catch (UnsupportedEncodingException e) {
+//            e.printStackTrace();
+//        }
+//
+//    }
+
+    public static void main(String[] args) throws IOException {
         Properties  pro = new Properties();
-//        String configpath = "..\\resources\\configure\\config.properties";
-        InputStream inputStream = Object.class.getResourceAsStream("/config.properties");
-        InputStreamReader inputStreamReader = null;
-        String value = null;
         try{
-            inputStreamReader = new InputStreamReader(inputStream,"GBK");
-            pro.load(inputStreamReader);
-//            value = (String) pro.get(keyword);
+            pro = PropertiesLoaderUtils.loadAllProperties("configure/basedata.properties");
+            System.out.println(pro.getProperty("baseUrl"));
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
         }
-        System.out.println(pro.get("baseUrl"));
     }
-
-//    public static void main(String[] args) throws IOException {
-//        String baseurl = getPropertied("baseUrl");
-//        System.out.println(baseurl);
-//    }
 }
