@@ -31,8 +31,4 @@ public class BaseClass {
         return tdriver.get();
     }
 
-//    public void open() throws IOException {
-//        String baseurl = getPropertied("baseUrl");
-//
-//    }
 }
