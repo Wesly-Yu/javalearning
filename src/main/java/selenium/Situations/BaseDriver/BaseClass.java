@@ -22,7 +22,7 @@ public class BaseClass {
         System.setProperty("webdriver.chrome.driver",webdriverpath);
         //WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
-        driver.manage().timeouts().pageLoadTimeout(20, TimeUnit.SECONDS);
+        driver.manage().timeouts().pageLoadTimeout(5, TimeUnit.SECONDS);
         driver.manage().window().maximize();
         tdriver.set(driver);
         return getDriver();
