@@ -3,7 +3,7 @@
 <suite name="All Test Suite">
     <test  name="Test" thread-count="3">
         <classes>
-            <class name="selenium.Situations.TestCase.situation09PO"></class>
+            <class name="selenium.Situations.TestCase.TestPageFactory"></class>
         </classes>
     </test>
 </suite>

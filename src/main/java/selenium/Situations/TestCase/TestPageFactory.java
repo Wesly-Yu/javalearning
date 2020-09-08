@@ -11,6 +11,7 @@ import org.testng.annotations.Test;
 import selenium.Situations.BaseDriver.BaseClass;
 import selenium.Situations.BaseDriver.BaseTest;
 import selenium.Situations.BaseDriver.BrowserFactory;
+import selenium.Situations.Operator.loginOperator;
 import selenium.Situations.PageFactory.TesterHomePage;
 import selenium.Situations.cleanLastReport;
 import selenium.Situations.javascriptUtil;
@@ -21,8 +22,8 @@ import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.MatcherAssert.assertThat;
 
 //继承BaseClass
-public class situation09PO extends BaseTest {
-//    WebDriver driver;
+public class TestPageFactory{
+
 
     @Test()
     @Description("login test")
@@ -32,21 +33,8 @@ public class situation09PO extends BaseTest {
     @Step("Verify login")
     @Severity(SeverityLevel.BLOCKER)
     public void testLogin() throws Exception {
-        getDriver().navigate().to("https://testerhome.com");
-        getDriver().manage().window().maximize();
-        getDriver().manage().timeouts().implicitlyWait(5,TimeUnit.SECONDS);
-        TesterHomePage homePage = new TesterHomePage();
-        System.out.println("------------------------------");
-        homePage.clicklogin();
-        Thread.sleep(2000);
-        homePage.businessLogin("1633235633@qq.com","yp10086");
-        homePage.clickloginbtn();
-        Thread.sleep(2000);
-        homePage.clickuserinfoselect();
-        Thread.sleep(1000);
-        assertThat(homePage.getusername(),equalTo("YOYO9527"));
-        Thread.sleep(2000);
-        homePage.clickuserinfoselect();
+        loginOperator loginOperator = new loginOperator();
+        loginOperator.loginByPageFactory("https://testerhome.com","1633235633@qq.com","yp10086","YOYO9527");
     }
 //    @Test(priority = 2)
 //    @Description("UserFavorites test")
