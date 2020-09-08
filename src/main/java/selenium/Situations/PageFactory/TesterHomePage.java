@@ -7,14 +7,15 @@ import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import selenium.Situations.BaseDriver.BaseClass;
+import selenium.Situations.BaseDriver.BaseTest;
 import selenium.Situations.BaseDriver.BrowserFactory;
 
 //@CacheLookup 这个注解的意思是说找到元素之后将缓存元素，重复的使用这些元素，将会大大加快测试的速度
-public class TesterHomePage {
-//    WebDriver driver;
-    @FindBy(xpath = "//a[contains(text(),'Sign Up')]")
+public class TesterHomePage extends BaseTest {
+
+    @FindBy(xpath = "//*[@id=\"main-page\"]/div[1]/nav/div/ul[1]/li[2]/a")
     @CacheLookup
-    private WebElement login;  //点击登录按钮
+    private WebElement loginfirst;  //点击登录按钮
 
     @FindBy(id = "user_login")
     @CacheLookup
@@ -38,24 +39,15 @@ public class TesterHomePage {
     @CacheLookup
     private  WebElement accountname;//登录密码
 
-//    public void  TesterHomePage(WebDriver  driver){
-//        this.driver = driver;
-//        PageFactory.initElements(driver,this);
-//    }
     public  TesterHomePage() throws Exception {
-//        BrowserFactory browserFactory = BrowserFactory.getInstance();
-//        browserFactory.setDriver("chrome");
-//        System.out.println("+++++++++++++++++++++++++++++++++++++++++++");
-//        WebDriver Driver = browserFactory.getDriver();
-        BaseClass base = new BaseClass();
-        WebDriver driver = base.initialize_driver();
+        WebDriver driver = getDriver();
         PageFactory.initElements(driver,this);
 
 
     }
     //click login  into login page
     public void clicklogin(){
-        login.click();
+        loginfirst.click();
     }
     //input  email
     public void inputaccount(String email){

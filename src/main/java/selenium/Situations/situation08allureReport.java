@@ -5,16 +5,9 @@ import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.remote.DesiredCapabilities;
-import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.annotations.*;
-
 import java.awt.*;
-import java.net.MalformedURLException;
-import java.net.URL;
 import java.util.concurrent.TimeUnit;
-
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.MatcherAssert.assertThat;
 
@@ -26,8 +19,8 @@ public class situation08allureReport {
         String reportpath = mainpath+"\\allure-results";
         cleanLastReport.deletDir(reportpath);
         String webdriverpath = mainpath+"\\src\\main\\resources\\webdriver\\chromedriver.exe";
-        System.out.println(webdriverpath);
-        System.setProperty("webdriver.chrome.driver",webdriverpath);
+        System.setProperty("webdriver.chrome.driver",
+                webdriverpath);
         driver.get("https://testerhome.com");
         driver.manage().window().maximize();
 
@@ -83,7 +76,7 @@ public class situation08allureReport {
     @Story("Story: Valid NoteBook")
     @Step("Verify UserNoteBook")
     @Severity(SeverityLevel.MINOR)
-    public  void testNewNoteBook() throws InterruptedException, AWTException {
+    public  void testNewNoteBook() throws InterruptedException {
         driver.findElement(By.xpath("//*[@id=\"main-page\"]/div[1]/nav/div/ul[1]/li/a/img")).click();
         Thread.sleep(1000);
         driver.findElement(By.xpath("//ul[@class='nav user-bar navbar-nav navbar-right']//li[5]//a[1]")).click();

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="All Test Suite">
-    <test  name="Test" thread-count="1">
+    <test  name="Test" thread-count="3">
         <classes>
-            <class name="selenium.Situations.situation08allureReport"></class>
+            <class name="selenium.Situations.TestCase.situation09PO"></class>
         </classes>
     </test>
 </suite>
