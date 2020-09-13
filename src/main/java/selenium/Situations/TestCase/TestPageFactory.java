@@ -1,6 +1,7 @@
 package selenium.Situations.TestCase;
 
 import io.qameta.allure.*;
+import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -33,7 +34,9 @@ public class TestPageFactory{
     @Step("Verify login")
     @Severity(SeverityLevel.BLOCKER)
     public void testLogin() throws Exception {
+        Logger logger = Logger.getLogger("TestPageFactory");
         loginOperator loginOperator = new loginOperator();
+        logger.info("------------输入url+email+password------------");
         loginOperator.loginByPageFactory("https://testerhome.com","1633235633@qq.com","yp10086","YOYO9527");
     }
 //    @Test(priority = 2)
