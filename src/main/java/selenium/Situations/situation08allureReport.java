@@ -5,6 +5,8 @@ import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.*;
 import java.awt.*;
 import java.util.concurrent.TimeUnit;
@@ -13,20 +15,21 @@ import static org.hamcrest.MatcherAssert.assertThat;
 
 public class situation08allureReport {
     WebDriver driver;
-    @BeforeClass
-    public void setUp()throws InterruptedException{
+    @BeforeMethod
+    public void setUp(){
         String mainpath = System.getProperty("user.dir");
         String reportpath = mainpath+"\\allure-results";
         cleanLastReport.deletDir(reportpath);
-        String webdriverpath = mainpath+"\\src\\main\\resources\\webdriver\\geckodriver.exe";
+        String webdriverpath = mainpath+"\\src\\main\\resources\\webdriver\\chromedriver.exe";
         System.out.println(webdriverpath);
-        System.setProperty("webdriver.gecko.driver",
+        System.setProperty("webdriver.chrome.driver",
                 webdriverpath);
-        driver.get("https://www.baidu.com");
+        driver = new ChromeDriver();
+        driver.get("https://testerhome.com");
         driver.manage().window().maximize();
 
     }
-    @Test(priority = 1)
+    @Test()
     @Description("login test")
     @Epic("QAGP-001")
     @Feature("Feature1:LoginPage")
@@ -46,7 +49,7 @@ public class situation08allureReport {
         System.out.println(accountname);
         Thread.sleep(3000);
     }
-    @Test(priority = 2)
+    @Test()
     @Description("UserFavorites test")
     @Epic("QAGP-002")
     @Feature("Feature1:UserFavoritesPage")
@@ -70,7 +73,7 @@ public class situation08allureReport {
         driver.findElement(By.id("reply-button")).click();
         Thread.sleep(2000);
     }
-    @Test(priority = 3)
+    @Test()
     @Description("UserNoteBook Create and Delete test")
     @Epic("QAGP-003")
     @Feature("Feature1:UserNoteBookCreate")
@@ -96,7 +99,7 @@ public class situation08allureReport {
         assertThat(noteBookcount,equalTo("查看我的 0 条 Note..."));
     }
 
-    @Test(priority = 4)
+    @Test()
     @Description("updateAccountProfile  parameter")
     @Epic("QAGP-004")
     @Feature("Feature1:updateAccountProfile")
@@ -116,7 +119,7 @@ public class situation08allureReport {
         assertThat(updatesuccess,equalTo("更新成功"));
         Thread.sleep(2000);
     }
-    @Test(priority = 5)
+    @Test()
     @Description("updateMoreProfile  parameter")
     @Epic("QAGP-005")
     @Feature("Feature1:updateMoreProfile")
@@ -139,7 +142,7 @@ public class situation08allureReport {
 
     }
 
-    @AfterClass
+    @AfterMethod
     public void tearDown() throws InterruptedException {
         System.out.println("It's test over to quit");
         Thread.sleep(3000);

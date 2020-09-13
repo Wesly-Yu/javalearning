@@ -11,11 +11,11 @@ import selenium.Situations.cleanLastReport;
 
 public class BaseDriver {
     //Declare ThreadLocal Driver (ThreadLocalMap) for ThreadSafe Tests
-    protected static ThreadLocal<RemoteWebDriver> driver = new ThreadLocal<>();
+    protected static ThreadLocal<WebDriver> driver = new ThreadLocal<WebDriver>();
 
 
     @BeforeClass
-    public void setup ()  {
+    public void SetUp ()  {
         String mainpath = System.getProperty("user.dir");
         String reportpath = mainpath+"\\allure-results";
         cleanLastReport.deletDir(reportpath);
