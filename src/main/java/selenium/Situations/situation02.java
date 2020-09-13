@@ -3,6 +3,7 @@ package selenium.Situations;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
 import java.awt.*;
@@ -12,10 +13,10 @@ import java.util.concurrent.TimeUnit;
 public class situation02 {
     public static void main(String[] args) throws InterruptedException, AWTException {
         String mainpath = System.getProperty("user.dir");
-        String webdriverpath = mainpath+"\\src\\main\\resources\\webdriver\\geckodriver.exe";
+        String webdriverpath = mainpath+"\\src\\main\\resources\\webdriver\\chromedriver.exe";
         System.out.println(webdriverpath);
-        System.setProperty("webdriver.gecko.driver",webdriverpath);
-        WebDriver  driver = new FirefoxDriver();
+        System.setProperty("webdriver.chrome.driver",webdriverpath);
+        WebDriver  driver = new ChromeDriver();
         driver.get("https://dl.3dmgame.com/patch/131400.html");
         driver.manage().window().maximize();
         Thread.sleep(3000);

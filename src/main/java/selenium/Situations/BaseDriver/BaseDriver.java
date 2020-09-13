@@ -1,19 +1,18 @@
 package selenium.Situations.BaseDriver;
 
-import org.apache.log4j.Logger;
+//import org.apache.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.annotations.*;
 import selenium.Situations.cleanLastReport;
 
-import java.net.MalformedURLException;
-import java.net.URL;
 
-public class BaseTest {
+public class BaseDriver {
     //Declare ThreadLocal Driver (ThreadLocalMap) for ThreadSafe Tests
     protected static ThreadLocal<RemoteWebDriver> driver = new ThreadLocal<>();
-    Logger logger = Logger.getLogger("BaseTest");
+
 
     @BeforeClass
     public void setup ()  {
@@ -21,7 +20,7 @@ public class BaseTest {
         String reportpath = mainpath+"\\allure-results";
         cleanLastReport.deletDir(reportpath);
         String webdriverpath = mainpath+"\\src\\main\\resources\\webdriver\\chromedriver.exe";
-        logger.info("-------"+webdriverpath+"-------");
+        System.out.println(webdriverpath);
         System.setProperty("webdriver.chrome.driver",
                 webdriverpath);
         //Set Browser to ThreadLocalMap
@@ -30,20 +29,19 @@ public class BaseTest {
 
     public WebDriver getDriver() {
         //Get driver from ThreadLocalMap
-        logger.info("-------getDriver-------");
         return driver.get();
     }
 
     @AfterMethod
     public void tearDown() {
-        logger.info("-------tearDown-------");
+//        logger.info("-------tearDown-------");
         getDriver().quit();
     }
 
     @AfterClass
-    public void terminate () {
+    void terminate () {
         //Remove the ThreadLocalMap element
-        logger.info("-------terminate-------");
+//        logger.info("-------terminate-------");
         driver.remove();
     }
 }

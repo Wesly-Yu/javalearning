@@ -2,16 +2,13 @@ package selenium.Situations.PageFactory;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import selenium.Situations.BaseDriver.BaseClass;
-import selenium.Situations.BaseDriver.BaseTest;
-import selenium.Situations.BaseDriver.BrowserFactory;
+import selenium.Situations.BaseDriver.BaseDriver;
 
 //@CacheLookup 这个注解的意思是说找到元素之后将缓存元素，重复的使用这些元素，将会大大加快测试的速度
-public class TesterHomePage extends BaseTest {
+public class TesterHomePage extends BaseDriver {
 
     @FindBy(xpath = "//*[@id=\"main-page\"]/div[1]/nav/div/ul[1]/li[2]/a")
     @CacheLookup
@@ -39,7 +36,7 @@ public class TesterHomePage extends BaseTest {
     @CacheLookup
     private  WebElement accountname;//登录密码
 
-    public  TesterHomePage() throws Exception {
+    public  TesterHomePage(){
         WebDriver driver = getDriver();
         PageFactory.initElements(driver,this);
 

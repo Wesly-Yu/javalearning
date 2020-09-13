@@ -1,25 +1,9 @@
 package selenium.Situations.TestCase;
 
 import io.qameta.allure.*;
-import org.apache.log4j.Logger;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-import selenium.Situations.BaseDriver.BaseClass;
-import selenium.Situations.BaseDriver.BaseTest;
-import selenium.Situations.BaseDriver.BrowserFactory;
 import selenium.Situations.Operator.loginOperator;
-import selenium.Situations.PageFactory.TesterHomePage;
-import selenium.Situations.cleanLastReport;
-import selenium.Situations.javascriptUtil;
 
-import java.util.concurrent.TimeUnit;
-
-import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.MatcherAssert.assertThat;
 
 //继承BaseClass
@@ -34,9 +18,7 @@ public class TestPageFactory{
     @Step("Verify login")
     @Severity(SeverityLevel.BLOCKER)
     public void testLogin() throws Exception {
-        Logger logger = Logger.getLogger("TestPageFactory");
         loginOperator loginOperator = new loginOperator();
-        logger.info("------------输入url+email+password------------");
         loginOperator.loginByPageFactory("https://testerhome.com","1633235633@qq.com","yp10086","YOYO9527");
     }
 //    @Test(priority = 2)

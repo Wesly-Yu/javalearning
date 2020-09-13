@@ -14,14 +14,15 @@ import static org.hamcrest.MatcherAssert.assertThat;
 public class situation08allureReport {
     WebDriver driver;
     @BeforeClass
-    public void setUp(){
+    public void setUp()throws InterruptedException{
         String mainpath = System.getProperty("user.dir");
         String reportpath = mainpath+"\\allure-results";
         cleanLastReport.deletDir(reportpath);
-        String webdriverpath = mainpath+"\\src\\main\\resources\\webdriver\\chromedriver.exe";
-        System.setProperty("webdriver.chrome.driver",
+        String webdriverpath = mainpath+"\\src\\main\\resources\\webdriver\\geckodriver.exe";
+        System.out.println(webdriverpath);
+        System.setProperty("webdriver.gecko.driver",
                 webdriverpath);
-        driver.get("https://testerhome.com");
+        driver.get("https://www.baidu.com");
         driver.manage().window().maximize();
 
     }

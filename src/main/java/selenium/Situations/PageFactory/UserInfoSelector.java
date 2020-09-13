@@ -1,14 +1,13 @@
 package selenium.Situations.PageFactory;
 
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import selenium.Situations.BaseDriver.BaseTest;
+import selenium.Situations.BaseDriver.BaseDriver;
 
-public class UserInfoSelector extends BaseTest {
+public class UserInfoSelector extends BaseDriver {
     @FindBy(xpath ="//*[@id=\"main-page\"]/div[1]/nav/div/ul[1]/li/a/img")
     @CacheLookup
     private  WebElement userinfo;//用户信息下拉框
