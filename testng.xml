@@ -1,36 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="All Test Suite">
-    <test verbose="2" preserve-order="true" name="E:/javalearning" thread-count="1">
+    <test  name="E:/javalearning" thread-count="3">
         <classes>
-            <class name="selenium.Situations.TestCase.TestPageFactory">
-                <methods>
-                    <include name="testLogin"/>
-                </methods>
-            </class>
-            <class name="selenium.Situations.situation05webHub">
-                <methods>
-                    <include name="setup"/>
-                    <include name="login"/>
-                </methods>
-            </class>
-            <class name="selenium.Situations.situation06seleniumGridWithThread">
-                <methods>
-                    <include name="testLogin"/>
-                    <include name="testUserFavorites"/>
-                    <include name="testNewNoteBook"/>
-                    <include name="updateAccountProfile"/>
-                    <include name="updateMoreProfile"/>
-                </methods>
-            </class>
-            <class name="selenium.Situations.situation08allureReport">
-                <methods>
-                    <include name="testLogin"/>
-                    <include name="testUserFavorites"/>
-                    <include name="testNewNoteBook"/>
-                    <include name="updateAccountProfile"/>
-                    <include name="updateMoreProfile"/>
-                </methods>
+            <class name="selenium.Situations.situation09multiThread">
             </class>
         </classes>
     </test>

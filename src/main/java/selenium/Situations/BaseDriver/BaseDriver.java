@@ -36,12 +36,13 @@ public class BaseDriver {
     public void tearDown() {
 //        logger.info("-------tearDown-------");
         getDriver().quit();
-    }
-
-    @AfterClass
-    void terminate () {
-        //Remove the ThreadLocalMap element
-//        logger.info("-------terminate-------");
         driver.remove();
     }
+
+//    @AfterClass
+//    void terminate () {
+//        //Remove the ThreadLocalMap element
+////        logger.info("-------terminate-------");
+//        driver.remove();
+//    }
 }

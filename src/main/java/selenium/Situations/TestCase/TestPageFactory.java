@@ -5,8 +5,6 @@ import org.testng.annotations.Test;
 import selenium.Situations.BaseDriver.BaseDriver;
 import selenium.Situations.Operator.loginOperator;
 
-import static org.hamcrest.MatcherAssert.assertThat;
-
 //继承BaseClass
 public class TestPageFactory extends BaseDriver {
 
